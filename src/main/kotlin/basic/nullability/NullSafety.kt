@@ -10,6 +10,6 @@ class Car(val color: String? = null) {
 
 fun main(){
     val car: Car? = null
-    car?.drive()
+    car?.drive() //if we run with ? we don;t get NPE just nothing
     car?.color
 }
