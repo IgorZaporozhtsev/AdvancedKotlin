@@ -1,13 +1,0 @@
-Headers with Authentication:
-Authorization: Bearer 123456
-ContentType: json
-Body:
-{
-"username"="dbacinski"
-}
-	Headers:
-ContentType: json
-Body:
-{
-"username"="dbacinski"
-}
