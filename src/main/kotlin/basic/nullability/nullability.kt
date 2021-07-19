@@ -2,7 +2,7 @@ package main.nullability
 
 //make NPE compile-time error not run-time error
 fun main() {
-    val s: String? = "abc"
+    val s: String? = null
 
     val len1 = if (s != null) s.length else 0
 
@@ -14,5 +14,7 @@ fun main() {
 
     val length2: Int = s?.length ?: 0 //length2 can be not nullable type because of default value in else (?:) section
 
-
+    val r: String? = null //"my string"
+    val c: String  = r ?: "default"
+    print(c)
 }
