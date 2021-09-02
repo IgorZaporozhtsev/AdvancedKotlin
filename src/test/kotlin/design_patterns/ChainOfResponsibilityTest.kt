@@ -21,7 +21,7 @@ class ChainOfResponsibilityTest {
 
         println(messageWithAuthentication)
 
-        val messageWithoutAuth = contentTypeHeader.addHeader("Headers:\n")
+        val messageWithoutAuth = contentTypeHeader.addHeader("Headers without Authentication:\n")
         println(messageWithoutAuth)
 
         assertThat(messageWithAuthentication).isEqualTo(
@@ -38,7 +38,7 @@ class ChainOfResponsibilityTest {
 
         assertThat(messageWithoutAuth).isEqualTo(
             """
-                Headers:
+                Headers without Authentication:
                 ContentType: json
                 Body:
                 {

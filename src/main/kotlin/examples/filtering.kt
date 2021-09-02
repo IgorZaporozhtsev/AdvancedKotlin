@@ -16,23 +16,19 @@ fun main() {
     val sue = Report("sue", "SMS",202)
     val reports = listOf(tom, mary, joe, peter, sue)
 
-    //val jsonReports = mapper.writeValueAsString(reports)
-
-    val tomAsString = mapper.writeValueAsString(tom)
-
     val condition = "$.[?(@.charge > 200 && @.service == 'DATA')]"
     val rule = Rule(condition, 10)
 
-    val findByJsonPath = JsonPathUtils.findByJsonPath<List<Report>>( rule.condition, tomAsString )
 
-    if (findByJsonPath.isNotEmpty()) print(true) else print(false)
-
-    fun pathPredicate(foo: Report): Boolean = foo.service == "DATA"
+    fun pathPredicate(report: Report): Boolean {
+        val reportAsString = mapper.writeValueAsString(report)
+        val findByJsonPath = JsonPathUtils.findByJsonPath<List<Report>>( rule.condition, reportAsString )
+        return findByJsonPath.isNotEmpty()
+    }
 
     val changedReports = reports
-        .filter {  pathPredicate(it) }
-        //.onEach { it.charge *= 10 }
-        .map { it.copy(vat = it.charge * rule.tax) }
+        .filter { report -> pathPredicate(report) }
+        .map { report ->  report.copy(vat = report.charge * rule.tax) }
 
     print(changedReports)
 

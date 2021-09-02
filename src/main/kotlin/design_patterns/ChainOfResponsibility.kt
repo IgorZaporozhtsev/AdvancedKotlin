@@ -1,7 +1,10 @@
 package design_patterns
 
 import java.lang.IllegalStateException
-
+/**
+ * follow to the test package
+ *
+ * */
 
 interface HeadersChain {
     fun addHeader(inputHeader: String): String

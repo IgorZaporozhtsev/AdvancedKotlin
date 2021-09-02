@@ -13,16 +13,15 @@ fun main() {
         // and more function calls if needed
     }
 
-    val str: String? = "Hello"
+    val str: String = "Hello"
     //processNonNullString(str)       // compilation error: str can be null
-    val length = str?.let {
+    val length = str.let {
         println("let() called on $it")
         processNonNullString(it)      // OK: 'it' is not null inside '?.let { }'
         it.length
     }
 
-    val numbers_sec = listOf("one", "two", "three", "four")
-    val modifiedFirstItem = numbers_sec.first().let { firstItem ->
+    val modifiedFirstItem = numbers.first().let { firstItem ->
         println("The first item of the list is '$firstItem'")
         if (firstItem.length >= 5) firstItem else "!" + firstItem + "!"
     }.uppercase()
