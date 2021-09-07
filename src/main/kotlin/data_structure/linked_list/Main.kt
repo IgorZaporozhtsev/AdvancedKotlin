@@ -1,5 +1,7 @@
 package data_structure.linked_list
 
+import javax.print.DocFlavor
+
 fun main() {
     "creating and linking nodes" example {
         val node1 = Node(value = 1)
@@ -11,8 +13,59 @@ fun main() {
 
         println(node1)
     }
+
+    "push" example {
+        val list = LinkedList<Int>()
+        list.push(23)
+        list.push(52)
+        list.push(4)
+
+        println(list)
+    }
+
+    "fluent interface push" example {
+        val list = LinkedList<Int>()
+        list.chainPush(1017)
+            .chainPush(57)
+            .chainPush(523)
+        println(list)
+    }
+
+    "append" example {
+        val list = LinkedList<Int>()
+        list.append(42)
+        list.append(721)
+        list.append(13)
+
+        println(list)
+    }
+
+    "fluent interface append" example {
+        val list = LinkedList<Int>()
+        list.chainAppend(5)
+        list.chainAppend(21)
+        list.chainAppend(19)
+
+        println(list)
+    }
+    "inserting at a particular index" example {
+        val list = LinkedList<String>()
+        list.push("Mouse")
+        list.push("Alligator")
+        list.push("Lyon")
+
+        println("Before inserting: $list")
+        val middleNode = list.nodeAt(1)!!
+        list.insert("Cat", middleNode)
+        list.insert("Dog", middleNode)
+
+        println("After inserting: $list")
+    }
 }
 
 private infix fun String.example(function: () -> Unit) {
-
+    println("Example of $this \n")
+    println("OUTPUT:")
+    function()
+    println("\n")
 }
