@@ -3,7 +3,7 @@ package data_structure.linked_list
 class LinkedList<T: Any> {
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
-    private var size = 0
+    var size = 0
 
     fun push(value: T) {
         head = Node(value = value, next = head)
@@ -66,6 +66,16 @@ class LinkedList<T: Any> {
         afterNode.next = newNode
         size++
         return newNode
+    }
+
+    fun pop(): T?{
+        if (!isEmpty()) size--
+        val result = head?.value
+        head = head?.next
+        if (isEmpty()){
+            tail = null
+        }
+        return result
     }
 
     private fun isEmpty(): Boolean {

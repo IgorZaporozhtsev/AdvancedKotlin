@@ -61,6 +61,28 @@ fun main() {
 
         println("After inserting: $list")
     }
+
+    "pop" example {
+        val list = LinkedList<String>()
+        list.push("sure")
+        list.push("pretty")
+        list.push("I'm")
+
+        println("Before popping list: $list \n list size: ${list.size}")
+        val poppedValue = list.pop()
+        println("After popping list: $list and \n list size: ${list.size}")
+        println("Popped value: $poppedValue")
+    }
+
+    "pop if one" example {
+        val list = LinkedList<String>()
+        list.push("One")
+
+        println("Before popping list: $list \n list size: ${list.size}")
+        val poppedValue = list.pop()
+        println("After popping list: $list and \n list size: ${list.size}")
+        println("Popped value: $poppedValue")
+    }
 }
 
 private infix fun String.example(function: () -> Unit) {
