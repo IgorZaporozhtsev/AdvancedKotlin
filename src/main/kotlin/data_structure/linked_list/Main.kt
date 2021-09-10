@@ -1,7 +1,5 @@
 package data_structure.linked_list
 
-import javax.print.DocFlavor
-
 fun main() {
     "creating and linking nodes" example {
         val node1 = Node(value = 1)
@@ -82,6 +80,22 @@ fun main() {
         val poppedValue = list.pop()
         println("After popping list: $list and \n list size: ${list.size}")
         println("Popped value: $poppedValue")
+    }
+
+    "removing the last node" example {
+        val list = LinkedList<String>()
+        list.push("One")
+        list.push("Two")
+        list.push("Three")
+        list.push("Four")
+        list.push("Five")
+        list.push("Six")
+
+        println("Before remove last node: $list \n list size: ${list.size}")
+        val removedValue = list.removeLast()
+        println("After remove last node: $list \n list size: ${list.size}")
+        println("Removed value: $removedValue")
+
     }
 }
 

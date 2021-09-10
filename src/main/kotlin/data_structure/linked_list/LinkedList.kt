@@ -78,6 +78,32 @@ class LinkedList<T: Any> {
         return result
     }
 
+    fun removeLast(): T? {
+
+        //if head == null is not makes sense continue
+        val head = head ?: return null
+
+        //if head consist of only one node we use pop that retrieve node from front
+        if (head.next == null) return pop()
+
+        size--
+
+        // 4
+        var prev = head
+        var current = head
+
+        var next = current.next
+        while (next != null) {
+            prev = current
+            current = next
+            next = current.next
+        }
+        // 5
+        prev.next = null
+        tail = prev
+        return current.value
+    }
+
     private fun isEmpty(): Boolean {
         return size == 0
     }
