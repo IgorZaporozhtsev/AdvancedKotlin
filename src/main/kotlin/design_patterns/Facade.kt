@@ -1,4 +1,18 @@
 package design_patterns
+/**
+ * Фасад - название само за себя говорит.
+ * в нашем случаи реализация скрыта за фосадом UserRepository
+ * сама же реализация находиться в ComplexSystemStore
+ *
+ * в тесте FacadeTest мы обращаемся только к userRepository
+ * UserRepository содержит ссылку на реализцию
+ *
+ * Что то подобное реализовано в Spring, мы не напрямую обращаемся к репозиторию сохранить Entity
+ * а через Service
+ *
+ * Так же выгляит это как некая инкапсуляция
+ *
+ * */
 
 class ComplexSystemStore(private val filePath: String) {
 
