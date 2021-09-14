@@ -1,9 +1,10 @@
 package data_structure.linked_list
 
-class LinkedList<T: Any> {
+class LinkedList<T : Any> : Iterable<T> {
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
     var size = 0
+    private set
 
     fun push(value: T) {
         head = Node(value = value, next = head)
@@ -102,6 +103,25 @@ class LinkedList<T: Any> {
         prev.next = null
         tail = prev
         return current.value
+    }
+
+    fun removeAfter(node: Node<T>): T? {
+        val result = node.next?.value
+
+        if (node.next == tail) {
+            tail = node
+        }
+
+        if (node.next != null) {
+            size--
+        }
+
+        node.next = node.next?.next
+        return result
+    }
+
+    override fun iterator(): Iterator<T> {
+        return LinkedListIterator(this)
     }
 
     private fun isEmpty(): Boolean {
