@@ -1,6 +1,6 @@
 package data_structure.linked_list
 
-data class Node<T: Any>(
+data class Node<T>(
     var value: T,
     var next: Node<T>? = null,
 )

@@ -1,6 +1,6 @@
 package data_structure.linked_list
 
-class LinkedListIterator<T : Any>(
+class LinkedListIterator<T>(
     private val list: LinkedList<T>,
     private var index: Int = 0,
     private var lastNode: Node<T>? = null

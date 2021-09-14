@@ -1,6 +1,6 @@
 package data_structure.linked_list
 
-class LinkedList<T : Any> : Iterable<T> {
+class LinkedList<T> : Iterable<T> {
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
     var size = 0
