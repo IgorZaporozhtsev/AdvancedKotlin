@@ -3,6 +3,8 @@ package design_patterns
 import java.lang.IllegalStateException
 /**
  * follow to the test package
+ * по сути выглядит как LinkedList с Нодами которые имеют ссылку на след ноду
+ *
  *
  * */
 
@@ -11,7 +13,7 @@ interface HeadersChain {
 }
 
 class AuthenticationHeader(
-    val token: String?,
+    private val token: String?,
     var next: HeadersChain? = null
 ): HeadersChain {
     override fun addHeader(inputHeader: String): String {
