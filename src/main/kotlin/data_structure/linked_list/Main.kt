@@ -111,6 +111,18 @@ fun main() {
         println("After removing at index $index: $list")
         println("Removed value: $removedValue")
     }
+
+    "printing doubles" example {
+        val list = LinkedList<Int>()
+        list.push(3)
+        list.push(2)
+        list.push(1)
+        println(list)
+
+        for (item in list) {
+            println("Double: ${item * 2}")
+        }
+    }
 }
 
 private infix fun String.example(function: () -> Unit) {

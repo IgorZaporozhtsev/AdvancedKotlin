@@ -4,7 +4,7 @@ class LinkedListIterator<T>(
     private val list: LinkedList<T>,
     private var index: Int = 0,
     private var lastNode: Node<T>? = null
-) : Iterator<T> {
+) : MutableIterator<T> {
     override fun next(): T {
         // 1
         if (index >= list.size) throw IndexOutOfBoundsException()
@@ -20,5 +20,19 @@ class LinkedListIterator<T>(
     }
     override fun hasNext(): Boolean {
         return index < list.size
+    }
+
+    override fun remove() {
+        // 1
+        if (index == 1) {
+            list.pop()
+        } else {
+            // 2
+            val prevNode = list.nodeAt(index - 2) ?: return
+            // 3
+            list.removeAfter(prevNode)
+            lastNode = prevNode
+        }
+        index--
     }
 }

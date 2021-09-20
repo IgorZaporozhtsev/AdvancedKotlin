@@ -1,9 +1,9 @@
 package data_structure.linked_list
 
-class LinkedList<T> : Iterable<T> {
+class LinkedList<T> : Collection<T>, MutableIterable<T>, MutableCollection<T>  {
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
-    var size = 0
+    override var size = 0
     private set
 
     fun push(value: T) {
@@ -120,11 +120,25 @@ class LinkedList<T> : Iterable<T> {
         return result
     }
 
-    override fun iterator(): Iterator<T> {
+    override fun contains(element: T): Boolean {
+        for (item in this) {
+            if (item == element) return true
+        }
+        return false
+    }
+
+    override fun containsAll(elements: Collection<T>): Boolean {
+        for (searched in elements) {
+            if (!contains(searched)) return false
+        }
+        return true
+    }
+
+    override fun iterator(): MutableIterator<T> {
         return LinkedListIterator(this)
     }
 
-    private fun isEmpty(): Boolean {
+    override fun isEmpty(): Boolean {
         return size == 0
     }
 
@@ -136,6 +150,58 @@ class LinkedList<T> : Iterable<T> {
         }
     }
 
+    override fun add(element: T): Boolean {
+        append(element)
+        return true
+    }
 
+    override fun addAll(elements: Collection<T>): Boolean {
+        for (element in elements){
+            append(element)
+        }
+        return true
+    }
+
+    override fun clear() {
+        head = null
+        tail = null
+        size = 0
+    }
+
+    override fun remove(element: T): Boolean {
+        //1
+        val iterator = iterator()
+        //2
+        while (iterator.hasNext()){
+            val item = iterator.next()
+            //3
+            if (item == element){
+                iterator.remove()
+                return true
+            }
+        }
+        return false
+    }
+
+    override fun removeAll(elements: Collection<T>): Boolean {
+        var result = false
+        for (item in elements){
+            result = remove(item) || result
+        }
+        return result
+    }
+
+    override fun retainAll(elements: Collection<T>): Boolean {
+        var result = false
+        val iterator = this.iterator()
+        while (iterator.hasNext()){
+            val item = iterator.next()
+            if (!elements.contains(item)){
+                iterator.remove()
+                result = true
+            }
+        }
+        return result
+    }
 }
 
