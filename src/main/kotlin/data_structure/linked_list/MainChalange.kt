@@ -37,6 +37,7 @@ private fun <T> addInReverse(list: LinkedList<T>, node: Node<T>) {
         // 2
         addInReverse(list, next)
     }
+
     // 3
     list.append(node.value)
 }
