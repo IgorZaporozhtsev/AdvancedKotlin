@@ -12,4 +12,5 @@ data class Node<T>(
             "$value"
         }
     }
+
 }

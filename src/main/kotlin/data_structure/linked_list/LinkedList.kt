@@ -43,7 +43,10 @@ class LinkedList<T> : Collection<T>, MutableIterable<T>, MutableCollection<T>  {
         size++
         return this
     }
-
+    /**
+    * @see #nodeAt tries to retrieve a node in the list based on the given index.
+    *
+    * */
     fun nodeAt(index: Int): Node<T>?{
         var currentNode = head
         var currentIndex = 0
@@ -203,5 +206,8 @@ class LinkedList<T> : Collection<T>, MutableIterable<T>, MutableCollection<T>  {
         }
         return result
     }
+
+
+
 }
 
