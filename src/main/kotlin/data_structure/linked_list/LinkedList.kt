@@ -5,7 +5,7 @@ class LinkedList<T> : Collection<T>, MutableIterable<T>, MutableCollection<T>  {
     private var tail: Node<T>? = null
     override var size = 0
     private set
-
+//Adds a value at the front of the list.
     fun push(value: T) {
         head = Node(value = value, next = head)
         if (tail == null) {
@@ -23,6 +23,7 @@ class LinkedList<T> : Collection<T>, MutableIterable<T>, MutableCollection<T>  {
         return this
     }
 
+    // Adds a value at the end of the list.
     fun append(value: T){
         if (isEmpty()){
             push(value)
@@ -58,7 +59,7 @@ class LinkedList<T> : Collection<T>, MutableIterable<T>, MutableCollection<T>  {
 
         return currentNode
     }
-
+//Adds a value after a particular node of the list
     fun insert(value: T, afterNode: Node<T>): Node<T>{
         if (tail == afterNode){
             append(value)

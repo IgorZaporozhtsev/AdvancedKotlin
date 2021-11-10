@@ -63,7 +63,7 @@ fun <T : Comparable<T>> LinkedList<T>.mergeSorted(otherList: LinkedList<T>): Lin
     // 1
     var left = nodeAt(0)
     var right = otherList.nodeAt(0)
-// 2
+    // 2
     while (left != null && right != null) {
         // 3
         if (left.value < right.value) {
