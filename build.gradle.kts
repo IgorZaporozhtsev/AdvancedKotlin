@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     implementation("org.junit.jupiter:junit-jupiter:5.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.3.9")
     testImplementation ("org.junit.jupiter:junit-jupiter-api:5.3.2")
     testImplementation("org.assertj:assertj-core:3.19.0")
     implementation("com.jayway.jsonpath:json-path:2.4.0")
